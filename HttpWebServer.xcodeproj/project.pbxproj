@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC9F05D46DA844CC0C394E4C /* libPods-HttpWebServer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C6AD8C8D65199591D8EB11B /* libPods-HttpWebServer.a */; };
 		D53E4B501BDE6B1800246109 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D53E4B4F1BDE6B1800246109 /* AppDelegate.m */; };
 		D53E4B531BDE6B1800246109 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D53E4B521BDE6B1800246109 /* main.m */; };
 		D53E4B561BDE6B1800246109 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D53E4B551BDE6B1800246109 /* ViewController.m */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		145A19F5DBC243405BBA89DA /* Pods-HttpWebServer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HttpWebServer.release.xcconfig"; path = "Pods/Target Support Files/Pods-HttpWebServer/Pods-HttpWebServer.release.xcconfig"; sourceTree = "<group>"; };
+		1C6AD8C8D65199591D8EB11B /* libPods-HttpWebServer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HttpWebServer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FFD128C4281B8476DEF7817 /* Pods-HttpWebServer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HttpWebServer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HttpWebServer/Pods-HttpWebServer.debug.xcconfig"; sourceTree = "<group>"; };
 		D53E4B4B1BDE6B1800246109 /* HttpWebServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HttpWebServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D53E4B4E1BDE6B1800246109 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D53E4B4F1BDE6B1800246109 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC9F05D46DA844CC0C394E4C /* libPods-HttpWebServer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41C61EF7333C59CF99B0F418 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C6AD8C8D65199591D8EB11B /* libPods-HttpWebServer.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6E99728790810F59AAB15373 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9FFD128C4281B8476DEF7817 /* Pods-HttpWebServer.debug.xcconfig */,
+				145A19F5DBC243405BBA89DA /* Pods-HttpWebServer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D53E4B421BDE6B1800246109 = {
 			isa = PBXGroup;
 			children = (
+				D53E4B641BDE737C00246109 /* Videos */,
 				D53E4B4D1BDE6B1800246109 /* HttpWebServer */,
 				D53E4B4C1BDE6B1800246109 /* Products */,
+				6E99728790810F59AAB15373 /* Pods */,
+				41C61EF7333C59CF99B0F418 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +101,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D53E4B641BDE737C00246109 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,9 +115,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D53E4B5F1BDE6B1800246109 /* Build configuration list for PBXNativeTarget "HttpWebServer" */;
 			buildPhases = (
+				80C8B4EE9E30373341E8DC63 /* Check Pods Manifest.lock */,
 				D53E4B471BDE6B1800246109 /* Sources */,
 				D53E4B481BDE6B1800246109 /* Frameworks */,
 				D53E4B491BDE6B1800246109 /* Resources */,
+				AC02224BFE1D7E5DAE44D67C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -139,6 +173,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		80C8B4EE9E30373341E8DC63 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AC02224BFE1D7E5DAE44D67C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HttpWebServer/Pods-HttpWebServer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D53E4B471BDE6B1800246109 /* Sources */ = {
@@ -246,6 +313,7 @@
 		};
 		D53E4B601BDE6B1800246109 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FFD128C4281B8476DEF7817 /* Pods-HttpWebServer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -258,6 +326,7 @@
 		};
 		D53E4B611BDE6B1800246109 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 145A19F5DBC243405BBA89DA /* Pods-HttpWebServer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -287,6 +356,7 @@
 				D53E4B611BDE6B1800246109 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
